@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advert home</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li> <a class="active" href="#">Ahabanza</a></li>
+            <li><a href="{% url 'inkoranya' %}">Inkoranya</a></li>
+            <li><a href="{% url 'umurage' %}">Umurage</a></li>
+            <li><a href="{% url 'hugura' %}">Amahugurwa</a></li>
+            {% if user.is_authenticated %}
+            <li>Hello, {{ user.first_name }}</li>
+            <li><a href="{% url 'logout' %}">Gusohoka</a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}">iyandikishe</a></li>
+            <li><a href="{% url 'login' %}">Kwinjira</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="sidebar">
+        <header>menu</header>
+        <a class="active" href="{% url 'ikibonezamvugo' %}"><span>ikeshamvugo</span></a>
+        <a href="{% url 'amasano' %}"><span>amasano</span></a>
+        <a href="{% url 'indamukanyo' %}"><span>indamukanyo</span></a>
+        <a href="{% url 'ubuhinzi' %}"><span>ubuhinzi</span></a>
+        <a href="{% url 'imbyino' %}"><span>imbyino</span></a>
+        <a href="{% url 'ibikoresho' %}"><span>ibikoresho</span></a>
+        <a href="{% url 'ubukwe' %}"><span>ubukwe</span></a>
+    </div>
+
+    <div class="container1">
+        {%  block content %}
+        {%  endblock %}
+    </div>
+    <style>
+        .container1{
+            z-index: 1000%;
+            background-color: #fff;
+            width: 80%;
+            height: fit-content;
+            margin-top: 5px;
+            margin-left: 12.5rem;
+            font-size: 21px;
+            margin-right: 4rem;
+            /* padding-left: 2rem; */
+        }
+    </style>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            background: #659674;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+</html>

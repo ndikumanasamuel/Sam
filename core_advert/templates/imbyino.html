@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Amoko y'imbyino nyarwanda</h2></center>
+<p>
+    <a href="{% url 'upload_imbyino' %}" class="btn btn-primary" style="margin-left: 3rem;" >Upload imbyino</a>
+</p>
+<table class="table mb-0"  >
+    <thead>
+        <tr>
+            <th>cover</th>
+            <th>name</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Imbyino in imbyino %}
+        <tr>
+            <td>
+                {% if Imbyino.cover %}
+                <img src="{{ Imbyino.cover.url }}" alt="" style="height: 5rem;">
+                {% else %}
+                <span class="text-muted"> no cover</span>
+                {% endif %}
+            </td>
+            <td>{{ Imbyino.name }}</td>
+            <td>
+                <a href=" {{ Imbyino.description.url }}" class="btn btn-primary btn-sm" target="_blank">Download pdf</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

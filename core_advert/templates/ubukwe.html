@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Imisango y'ubukwe nyarwanda</h2></center>
+<p>
+    <a href="{% url 'upload_ubukwe' %}" class="btn btn-primary" style="margin-left: 3rem;" >Upload ubukwe</a>
+</p>
+<table class="table mb-0">
+    <thead>
+        <tr>
+            <th>name</th>
+            <!-- <th>description</th> -->
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Ubukwe in ubukwe %}
+        <tr>
+            <td>{{ Ubukwe.name }}</td>
+            <td>
+                <a href=" {{ Ubukwe.description.url }}" class="btn btn-primary btn-sm" target="_blank">Download pdf</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

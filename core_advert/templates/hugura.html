@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Urubuga rwo guhuguriraho abantu ibijyanye n' umuco nyarwanda</h2></center>
+<a href="{% url 'upload_hugura' %}" class="btn btn-primary" style="margin-left:4rem;margin-bottom: 2rem;">Ongeraho</a>
+
+
+  <div class="row" style="margin-left:1rem ; padding-bottom: 1rem;">
+    {% for Hugura in hugura %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          {% if Hugura.cover %}
+                <img src="{{ Hugura.cover.url }}" alt="" style="height: 190px;">
+                {% else %}
+                <span class="text-muted"> no cover</span>
+                {% endif %}
+            <!-- <img src="{{Hugura.image}}" class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title"style="color: #307544;">{{Hugura.name}}</h5>
+              <!-- <p class="card-text" style="font-size: 18px;">{{Ibikoresho.description}}</p> -->
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

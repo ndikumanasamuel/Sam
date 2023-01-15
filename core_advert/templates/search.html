@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    {% for inkoranya in inkoranyas %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title">{{inkoranya.name}}</h5>
+              <p class="card-text">{{inkoranya.description}}</p>
+              <!-- <a href="{% url 'upload_inkoranya' %}" class="btn btn-primary">Ijambo rishya</a> -->
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

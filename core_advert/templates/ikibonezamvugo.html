@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Iga ntibavuga bavuga, umenye kuvuga neza ikinyarwanda</h2></center>
+<p>
+    <a href="{% url 'upload_ikibonezamvugo' %}" class="btn btn-primary" style="margin-left:2rem;">Imvugo nshya</a>
+</p>
+<table class="table mb-0" style="padding-left:1rem;" >
+    <thead>
+        <tr>
+            <th>ifoto</th>
+            <th>Izina</th>
+            <th>Inyandiko</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Ikibonezamvugo in ikibonezamvugo %}
+        <tr>
+            <td>
+            {% if Ikibonezamvugo.cover %}
+                <img src="{{ Ikibonezamvugo.cover.url }}" alt="" style="height: 5rem;">
+                {% else %}
+                <span class="text-muted"> no cover</span>
+                {% endif %}
+            </td>
+            <td>{{ Ikibonezamvugo.name }}</td>
+            <td>
+                <a href=" {{ Ikibonezamvugo.description.url }}" class="btn btn-primary btn-sm" target="_blank">Sobanukirwa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Menya indangamurage zose zo mu Rwanda</h2></center>
+<p>
+    <a href="{% url 'upload_umurage' %}" class="btn btn-primary" style="margin-left:2rem;">kongeraho</a>
+</p>
+<table class="table mb-0" style="margin-left: 1rem;">
+    <thead>
+        <tr>
+            <th>Izina</th>
+            <!-- <th>description</th> -->
+            <th>Ibisobanuro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Umurage in umurage %}
+        <tr>
+            <td>{{ Umurage.name }}</td>
+            <td>
+                <a href=" {{ Umurage.description.url }}" class="btn btn-primary btn-sm" target="_blank">Menya byinshi</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

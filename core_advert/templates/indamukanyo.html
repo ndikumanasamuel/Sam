@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Menya uko abanyarwanda basuhuzanya nu uko bikiriza</h2></center>
+<p>
+    <a href="{% url 'upload_indamukanyo' %}" class="btn btn-primary" style="margin-left: 3rem;" >kongeraho</a>
+</p>
+<table class="table mb-0" style="margin-left: 1rem;" >
+    <thead>
+        <tr>
+            <th>izina</th>
+            <!-- <th>description</th> -->
+            <th>ibisobanuro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Indamukanyo in indamukanyo %}
+        <tr>
+            <td>{{ Indamukanyo.name }}</td>
+            <td>
+                <a href=" {{ Indamukanyo.description.url }}" class="btn btn-primary btn-sm" target="_blank">Menya byinshi</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

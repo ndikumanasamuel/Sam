@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+  </head>
+  <body>
+    <h3 style="margin-left: 2rem; margin-bottom:2rem ;">Tanga neza amakuru akenewe</h3>
+
+    <form method="post" style="margin-left: 2rem;">
+        {% csrf_token %}
+        Izina rya 1<input type="text" name="first_name" placeholder="izina ry' idini" style="margin-left:2.6rem ;"><br><br>
+        Izina rya 2<input type="text" name="second_name" placeholder="izina ry' ababyeyi" style="margin-left:2.7rem ;"><br><br>
+        Username<input type="text" name="username" placeholder="username" style="margin-left:3rem ;"><br><br>
+        Email<input type="email" name="email" placeholder="sam@gmail.com" style="margin-left:5rem ;"><br><br>
+        Ijambo banga<input type="password" name="password1" placeholder="ijambo banga" style="margin-left:1rem ;" ><br><br>
+        Ijambo banga<input type="password" name="password2" placeholder="Emeza ijambo banga"style="margin-left:1rem ;"><br><br>
+        <input type="submit" class="btn btn-success" style="margin-left:10rem;margin-bottom: 2rem;"><br>
+    </form
+    <div>
+
+      {% for message in messages %}
+      <h3> {{ message }} </h3>
+      {% endfor %}
+    </div>
+  </body>
+  {% endblock %}
+</html>

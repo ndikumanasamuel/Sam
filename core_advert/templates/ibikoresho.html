@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Ibikoreho nyarwanda wasanga munzu ndangamurage</h2></center>
+<a href="{% url 'upload_ibikoresho' %}" class="btn btn-primary" style="margin-left:4rem;margin-bottom: 2rem;">igikoresho gishya</a>
+
+<!-- <form class="d-flex" method="GET" action="{% url 'search' %}" style= "padding-left:38rem; padding-bottom: 2rem; ">
+    <input class="form-control me-2" style="width: 20rem;background-color: rgba(6, 74, 20, 0.379); color: #fff;" name="q" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+
+  <div class="row" style="padding-bottom: 0.5rem;">
+    {% for Ibikoresho in ibikoresho %}
+    <div class="col" style="margin-left: 1.5rem; padding-top: 0.5rem; " >
+        <div class="card" style="width: 18rem;">
+          {% if Ibikoresho.image %}
+                <img src="{{ Ibikoresho.image.url }}" alt="" style="height: 150px">
+                {% else %}
+                <span class="text-muted"> nta foto ihari</span>
+                {% endif %}
+          
+            <div class="card-body">
+              <h5 class="card-title"style="color: #307544;">{{Ibikoresho.name}}</h5>
+              <p class="card-text" style="font-size: 18px;">{{Ibikoresho.description}}</p>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

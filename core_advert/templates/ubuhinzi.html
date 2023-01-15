@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Ibihe biranga ubuhinzi nk' umurimo utunze abanyarwanda benshi</h2></center>
+<p>
+    <a href="{% url 'upload_ubuhinzi' %}" class="btn btn-primary" style="margin-left: 3rem;" >kongeraho</a>
+</p>
+<table class="table mb-0" style="padding-left: 1rem;" >
+    <thead>
+        <tr>
+            <th>izina</th>
+            <!-- <th>description</th> -->
+            <th>ibisobanuro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Ubuhinzi in ubuhinzi %}
+        <tr>
+            <td>{{ Ubuhinzi.name }}</td>
+            <td>
+                <a href=" {{ Ubuhinzi.description.url }}" class="btn btn-primary btn-sm" target="_blank">Menya byinshi</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>Inkoranya y'ikinyarwanda mu kinyarwanda</h2></center>
+<a href="{% url 'upload_inkoranya' %}" class="btn btn-primary" style="margin-left:4rem ;">Ijambo rishya</a>
+<form class="d-flex" method="GET" action="{% url 'search' %}" style= "padding-left:38rem; padding-bottom: 2rem; ">
+    <input class="form-control me-2" style="width: 20rem;background-color: rgba(6, 74, 20, 0.379); color: #fff;" name="q" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  <div class="row" style="margin-left: 2rem; padding-bottom: 1rem;">
+    {% for Inkoranya in inkoranya %}
+    <div class="col" style="padding-top: 0.5rem;">
+        <div class="card" style="width: 18rem; height: 200px" >
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h4 class="card-title" style="color: #307544;">{{Inkoranya.name}}</h4>
+              <p class="card-text" style="font-size: 18px;">{{Inkoranya.description}}</p>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
